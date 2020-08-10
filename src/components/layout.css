@@ -70,13 +70,13 @@ svg {
 }
 
 /* ヘッダー */
-.header .container {
+/* .header .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 134px;
   text-align: center;
-}
+} */
 
 .nav ul {
   display: flex;
@@ -94,12 +94,12 @@ svg {
   .nav ul {
     margin-top: 0;
   }
-  .header .container {
+  /* .header .container {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     height: 100px;
-  }
+  } */
 }
 
 /* ヒーロー */
@@ -311,7 +311,6 @@ svg {
   padding-top: 60px;
   padding-bottom: 60px;
   color: #fff;
-  /* background-image: url(/images/pattern.jpg); */
   background-image: none;
   background-size: cover;
   background-color: #477294;
