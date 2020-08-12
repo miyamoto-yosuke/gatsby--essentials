@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
+import Image from "../components/image"
 
 import Layout from "../components/layout"
 
@@ -10,13 +11,7 @@ export default ({ data }) => (
   <Layout>
     <SEO />
     <section className="hero">
-      <figure>
-        <Img
-          fluid={data.hero.childImageSharp.fluid}
-          alt=""
-          style={{ height: "100%" }}
-        />
-      </figure>
+      <Image filename="hero.jpg" alt="" style={{ height: "100%" }} />
       <div className="catch">
         <h1>
           There is no love sincerer than
@@ -47,9 +42,7 @@ export default ({ data }) => (
 
         <div className="details">
           <div className="detail">
-            <figure>
-              <Img fixed={data.fruit.childImageSharp.fixed} alt="" />
-            </figure>
+            <Image filename="fruit.jpg" alt="" />
             <h3>フルーツ</h3>
             <p>FRUIT</p>
             <p>
@@ -60,9 +53,7 @@ export default ({ data }) => (
           </div>
 
           <div className="detail">
-            <figure>
-              <Img fixed={data.grain.childImageSharp.fixed} alt="" />
-            </figure>
+            <Image filename="grain.jpg" alt="" />
             <h3>穀物</h3>
             <p>GRAIN</p>
             <p>
@@ -73,9 +64,7 @@ export default ({ data }) => (
           </div>
 
           <div className="detail">
-            <figure>
-              <Img fixed={data.beverage.childImageSharp.fixed} alt="" />
-            </figure>
+            <Image filename="beverage.jpg" alt="" />
             <h3>飲み物</h3>
             <p>BEVERAGE</p>
             <p>
@@ -90,13 +79,11 @@ export default ({ data }) => (
 
     <section className="photo">
       <h2 className="sr-only">Photo</h2>
-      <figure>
-        <Img
-          fluid={data.berry.childImageSharp.fluid}
-          alt="赤く熟したベリー"
-          style={{ height: "100%" }}
-        />
-      </figure>
+      <Image
+        filename="berry.jpg"
+        alt="赤く熟したベリー"
+        style={{ height: "100%" }}
+      />
     </section>
 
     <section>
@@ -128,41 +115,6 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
-    hero: file(relativePath: { eq: "hero.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1600) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
-      }
-    }
-    fruit: file(relativePath: { eq: "fruit.jpg" }) {
-      childImageSharp {
-        fixed(width: 320) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    grain: file(relativePath: { eq: "grain.jpg" }) {
-      childImageSharp {
-        fixed(width: 320) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    beverage: file(relativePath: { eq: "beverage.jpg" }) {
-      childImageSharp {
-        fixed(width: 320) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    berry: file(relativePath: { eq: "berry.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1600) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
     allContentfulBlogPost(
       sort: { order: DESC, fields: publishDate }
       skip: 0

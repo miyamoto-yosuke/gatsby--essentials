@@ -46,5 +46,6 @@ module.exports = {
         host: process.env.CONTENTFUL_HOST,
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
 }
