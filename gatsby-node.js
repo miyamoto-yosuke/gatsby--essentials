@@ -1,4 +1,7 @@
 const path = require("path")
+const {
+  documentToPlainTextString,
+} = require("@contentful/rich-text-plain-text-renderer")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -98,4 +101,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   })
+}
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `contentfulBlogPostContentRichTextNode`) {
+    createNodeField({
+      node,
+      name: `description`,
+      value: `${documentToPlainTextString(JSON.parse(node.content)).slice(
+        0,
+        70
+      )}・・・`,
+    })
+  }
 }
